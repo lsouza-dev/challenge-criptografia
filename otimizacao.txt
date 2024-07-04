@@ -1,0 +1,20 @@
+const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+const dicionario = {
+    'a': 'ai',
+    'e': 'enter',
+    'i': 'imes',
+    'o': 'ober',
+    'u': 'ufat'
+};
+
+const resultado = [...mensagem].map(caractere => {
+    // Verifica se o caractere está no dicionário de vogais
+    if (caractere in dicionario) {
+        return dicionario[caractere]; // Substitui pelo código correspondente
+    } else {
+        return caractere; // Mantém o caractere original se não estiver no dicionário
+    }
+}).join(''); // Junta todos os caracteres transformados em uma única string
+
+console.log(resultado);
+return resultado;
