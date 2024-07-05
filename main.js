@@ -2,58 +2,89 @@ const textArea = document.querySelector("textarea");
 const botoes = document.querySelectorAll(".conteudo-selecao-botoes");
 
 
-const criptografarOuDesencriptografar = ((event) => {
+const verificarAcao = ((event) => {
 
-    const btn = event.target;
-    btn.classList.add("ativo");
-
-    if(botoes[0].classList.contains("ativo"))
-        {
-            const mensagem = textArea.value;
-    const arrayCaracteres = [...mensagem];
-
-    const dicionario = {
+    const btnClicado = event.target.id;
     
-        "e" : "enter",
-        "i" : "imes",
-        "a" : "ai",
-        "o" : "ober",
-        "u" : "ufat"
+    // Método de verificação
+
+    if(btnClicado === "criptografar")
+    {
+        const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+        if(mensagem.length > 0)
+        {
+            criptografarTexto();
+        }
+        else
+        {
+            alert("Insira ao menos 1 caractere para realizar a ciptografia.");
+        }
         
     }
-
-    
-    const resultado = arrayCaracteres.map((caractere) => {
-
-        if(caractere in dicionario)
-            {
-                return dicionario[caractere];
-            }
-        else 
-        {
-            return caractere
-        }
-    }).join("");
-
-
-    console.log(resultado);
-    
-        }
-    else if(botoes[1].classList.contains("ativo"))
+    else 
+    if(btnClicado === "decriptografar")
     {
-        console.log("desencriptografa")
+        let mensagem = criptografarTexto();
+
+        if(mensagem.length > 0)
+        {
+            decriptografarTexto(mensagem);
+        }
+        else
+        {
+            console.log("vazio");
+        }
     }
 
-
-
-    botoes.forEach((item) => {
-        item.classList.remove("ativo");
-    })
-    
 })
 
 
+const criptografarTexto = (() => {
+
+    const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+    const arrayCaracteres = [...mensagem];
+    const dicionario = {
+        'a': 'ai',
+        'e': 'enter',
+        'i': 'imes',
+        'o': 'ober',
+        'u': 'ufat'
+    };
+    
+    const resultado =arrayCaracteres.map(caractere => {
+        // Verifica se o caractere está no dicionário de vogais
+        if (caractere in dicionario) {
+            return dicionario[caractere]; // Substitui pelo código correspondente
+        } else {
+            return caractere; // Mantém o caractere original se não estiver no dicionário
+        }
+    }).join(''); // Junta todos os caracteres transformados em uma única string
+
+
+    console.log(resultado);
+    return resultado;
+
+    
+})
+
+const decriptografarTexto = ((mensagem) =>{
+
+    const substituicoes = 
+    {
+        "ai" : "a" ,
+        "enter" : "e" ,
+        "imes" : "i" ,
+        "ober" : "o" ,
+        "ufat" : "u" 
+    }
+
+    const mensagemDecriptografada = mensagem.replace(/ai|enter|imes|ober|ufat/g,match => substituicoes[match]);
+
+    console.log(mensagemDecriptografada)
+    
+})
 
 botoes.forEach((btn,index) => {
-    btn.addEventListener("click", criptografarOuDesencriptografar)
+    btn.addEventListener("click",verificarAcao) 
+    
 })
