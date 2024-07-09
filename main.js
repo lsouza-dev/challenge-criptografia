@@ -17,14 +17,14 @@ const verificarAcao = ((event) => {
         }
         else
         {
-            alert("Insira ao menos 1 caractere para realizar a ciptografia.");
+            alert("Insira ao menos 1 caractere para realizar a criptografia.");
         }
         
     }
     else 
-    if(btnClicado === "decriptografar")
+    if(btnClicado === "descriptografar")
     {
-        let mensagem = criptografarTexto();
+        const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
 
         if(mensagem.length > 0)
         {
@@ -32,7 +32,7 @@ const verificarAcao = ((event) => {
         }
         else
         {
-            console.log("vazio");
+            alert("Insira a mensagem que deseja descriptografar antes de realizar a ação.")
         }
     }
 
