@@ -1,6 +1,6 @@
-const textArea = document.querySelector("textarea");
-const botoes = document.querySelectorAll(".conteudo-selecao-botoes");
-
+const textArea = document.querySelector(".container-interacoes-texto");
+const botoes = document.querySelectorAll(".container-interacoes-criptografia-botoes");
+console.log(botoes);
 
 const verificarAcao = ((event) => {
 
@@ -10,7 +10,7 @@ const verificarAcao = ((event) => {
 
     if(btnClicado === "criptografar")
     {
-        const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+        const mensagem = document.querySelector(".container-interacoes-texto").value;
         if(mensagem.length > 0)
         {
             criptografarTexto();
@@ -24,7 +24,7 @@ const verificarAcao = ((event) => {
     else 
     if(btnClicado === "descriptografar")
     {
-        const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+        const mensagem = document.querySelector(".container-interacoes-texto").value;
 
         if(mensagem.length > 0)
         {
@@ -41,7 +41,7 @@ const verificarAcao = ((event) => {
 
 const criptografarTexto = (() => {
 
-    const mensagem = document.querySelector(".conteudo-mensagem-texto").value;
+    const mensagem = document.querySelector(".container-interacoes-texto").value;
     const arrayCaracteres = [...mensagem];
     const dicionario = {
         'a': 'ai',
