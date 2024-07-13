@@ -59,29 +59,24 @@ const criptografarTexto = (() => {
 
     const btnClipboard = document.querySelector("#clipboard");
     
-    const filhosResultado = document.querySelectorAll(".container-resultado-retorno-mensagem *");
+    const filhosResultado = document.querySelectorAll(".container-resultado h2, .container-resultado img");
     filhosResultado.forEach((item) =>{
-        item.setAttribute("style","display:none");
+        item.setAttribute("style", "display:none");
     })
 
-    const containerPai = document.querySelector(".container-resultado-retorno-mensagem");
-
-    const divResultado = document.createElement("div");
-    divResultado.classList.add("div-texto-final")
-
-    const textoFinal = document.createElement("p");
-    textoFinal.classList.add("texto-final");
+    const textoFinal = document.querySelector(".mensagem-resultado-auxiliar");
+    const divTextoFinal = document.querySelector(".mensagem-resultado-textos");
+    const containerResultado = document.querySelector(".container-resultado-retorno-mensagem");
+    
+    containerResultado.setAttribute("style", "align-content: baseline");
+    
+    
+    divTextoFinal.classList.add("exibido");
     textoFinal.innerText = resultado;
 
-    divResultado.appendChild(textoFinal);   
-    containerPai.appendChild(divResultado);
     
     btnClipboard.setAttribute("style","display:block");
 
-    //console.log(textoFinal);
-    
-
-    console.log(resultado);
     return resultado;
 
 
@@ -100,11 +95,23 @@ const decriptografarTexto = ((mensagem) => {
 
     const mensagemDecriptografada = mensagem.replace(/ai|enter|imes|ober|ufat/g, match => substituicoes[match]);
 
+    const filhosResultado = document.querySelectorAll(".container-resultado h2, .container-resultado img");
+    filhosResultado.forEach((item) =>{
+        item.setAttribute("style", "display:none");
+    })
+
+    const textoFinal = document.querySelector(".mensagem-resultado-auxiliar");
+    const divTextoFinal = document.querySelector(".mensagem-resultado-textos");
+    const containerResultado = document.querySelector(".container-resultado-retorno-mensagem");
+    
+    containerResultado.setAttribute("style", "align-content: baseline");
+    divTextoFinal.classList.add("exibido");
+    textoFinal.innerText = mensagemDecriptografada;
+
     const btnClipboard = document.querySelector("#clipboard");
-    //const 
     btnClipboard.setAttribute("style","display:block");
 
-    console.log(mensagemDecriptografada)
+    
 
 })
 
@@ -137,3 +144,22 @@ const caractereInvalido = (mensagem) => {
     let mensagemInfo = "\n\nInsira apenas caracetes minúsculos e sem acento para realizar a operação.";
     return arrayCaracteresInvalidos.length > 0 ? mensagemErro + arrayCaracteresInvalidos.join("\n") + mensagemInfo : false;
 }
+
+
+const clipboarText = () => {
+    const texto = document.querySelector(".exibido");
+    const msgClip = navigator.clipboard.writeText(texto.innerText);
+    msgClip.then(() =>{
+
+        alert('Texto copiado com sucesso da àrea de transferência.');
+        
+    }).catch(err => {
+        alert(err);
+    });
+
+    const replacedMessage = document.querySelector(".mensagem-resultado-auxiliar");
+    replacedMessage.innerText = "Nenhuma mensagem";
+}
+
+const btnClipboard = document.querySelector("#clipboard");
+btnClipboard.addEventListener("click",clipboarText)

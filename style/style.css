@@ -77,6 +77,7 @@ main
 
     .container-interacoes-criptografia
     {
+       margin-top: 20px;
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -125,8 +126,10 @@ main
     {
         background-color: white;
         width: 100%;
-        height: 200px;
-        display: flex;
+
+        display: block;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         border-radius: 32px;
         box-shadow: 2px 12px 50px rgba(0, 0, 0, 0.109)
@@ -146,15 +149,60 @@ main
         text-align: center;
         font-family: var(--font-resultado);
         gap: 16px;
-        width: 100%;
-        height: 100px;
+        width: 80%;
+        padding: 32px;
+        height: 150px;
         font-family: var(--font-resultado);
+        
     }
     
     .mensagem-resultado-textos h2,p
     {
         margin: 0px;
         padding: 0px;
+        
+    }
+
+    .mensagem-resultado-auxiliar
+    {
+        
+        word-wrap: break-word;
+        max-width: 100%;
+        
+        display: -webkit-box; /* Para usar o line-clamp */
+        -webkit-box-orient: vertical; /* Orientação vertical para o box */
+        max-height: 170px; /* Altura máxima do contêiner */
+        overflow: hidden; /* Esconde qualquer conteúdo que exceda a altura */
+        -webkit-line-clamp: 8; /* Número de linhas de texto exibidas */
+        text-overflow: ellipsis;
+    }
+
+    .container-resultado-clipboard
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 20%;
+    }
+
+    #clipboard
+    {
+        display: none;
+        font-size: var(--font-size-btn);
+        color: var(--cor-botao1);
+        background-color: var(--cor-background);
+        border-radius: var(--b-radius-btn); 
+        width: 50%;
+        padding: 24px;
+        border:1px solid var(--cor-botao1);
+        font-family: var(--font-resultado);
+    }
+
+    .exibido
+    {
+        display: block;
+        text-align: left;
     }
 }
 
@@ -255,27 +303,41 @@ main
     {
         display: none;
     }
-
+    
     .mensagem-resultado-textos
     {
-        
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
         font-family: var(--font-resultado);
         gap: 16px;
-        width: 100%;
+        width: 90%;
         height: 100px;
         font-family: var(--font-resultado);
     }
     
+    .mensagem-resultado-auxiliar
+    {
+        display: -webkit-box; /* Para usar o line-clamp */
+        -webkit-box-orient: vertical; /* Orientação vertical para o box */
+        max-height: 120px; /* Altura máxima do contêiner */
+        overflow: hidden; /* Esconde qualquer conteúdo que exceda a altura */
+        -webkit-line-clamp: 5; /* Número de linhas de texto exibidas */
+        text-overflow: ellipsis;
+    }
+
     .mensagem-resultado-textos h2,p
     {
         margin: 0px;
         padding: 0px;
     }
     
+    .exibido
+    {
+        display: block;
+        text-align: left;
+    }
     
 }
 
@@ -369,13 +431,12 @@ main
 
     .container-resultado
     {
-        display: flex;
-        flex-direction:column;
+        display: block;
         justify-content: space-between;
         height: 85%;
         background-color: white;
         border-radius: 32px;
-        width: 80%; 
+        max-width: 80%; 
         padding:  40px;
         box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.185);
 
@@ -383,8 +444,21 @@ main
 
     .container-resultado-retorno-mensagem
     {
-        height: 90%;
+        display: block;
+        height: 85%;
         align-content:space-around ;
+    }
+
+    .mensagem-resultado-auxiliar {
+        max-width: 100%;
+        word-wrap: break-word;
+
+        display: -webkit-box; /* Para usar o line-clamp */
+        -webkit-box-orient: vertical; /* Orientação vertical para o box */
+        max-height: 170px; /* Altura máxima do contêiner */
+        overflow: hidden; /* Esconde qualquer conteúdo que exceda a altura */
+        -webkit-line-clamp: 8; /* Número de linhas de texto exibidas */
+        text-overflow: ellipsis;
     }
 
     .exibido
@@ -400,9 +474,12 @@ main
 
     .mensagem-resultado-textos
     {
-        display: flex;
+        display: block;
         flex-direction: column;
         text-align: center;
+        padding: 0;
+        width: 100%;
+
     } 
 
     
@@ -434,4 +511,12 @@ main
         padding: 24px;
         border:1px solid var(--cor-botao1);
     }
+
+    .exibido
+    {
+        text-align: left;
+        align-content: flex-start;
+    }
+
+
 }
