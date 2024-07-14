@@ -120,7 +120,8 @@ main
     .container-resultado
     {
         background-color: white;
-        max-width: 100%;
+        width: 100%;
+        /* max-width: 100%; */
         display: block;
         flex-direction: column;
         justify-content: center;
