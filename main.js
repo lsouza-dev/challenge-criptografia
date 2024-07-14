@@ -1,6 +1,5 @@
 const textArea = document.querySelector(".container-interacoes-texto");
 const botoes = document.querySelectorAll(".container-interacoes-criptografia-botoes");
-console.log(botoes);
 
 const verificarAcao = ((event) => {
 
@@ -125,19 +124,19 @@ const caractereInvalido = (mensagem) => {
     let arrayCaracteresInvalidos = [];
 
     if (/[0-9]/.test(mensagem)) {
-        arrayCaracteresInvalidos.push("Caractere numérico encontrado.");
+        arrayCaracteresInvalidos.push("Caractere numérico.");
     }
 
     if (/['A-Z']/.test(mensagem)) {
-        arrayCaracteresInvalidos.push("Letra maiúscula encontrada.");
+        arrayCaracteresInvalidos.push("Letra maiúscula.");
     }
 
     if (/[áéíóúâêîôûàèìòùãõäëïöüçÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜÇ]/.test(mensagem)) {
-        arrayCaracteresInvalidos.push("Acento encontrado.");
+        arrayCaracteresInvalidos.push("Acentuação.");
     }
 
     if (/[^a-zA-Z0-9\s]/.test(mensagem)) {
-        arrayCaracteresInvalidos.push("Caractere especial encontrado.");
+        arrayCaracteresInvalidos.push("Caractere especial.");
     }
 
     let mensagemErro = "Foram encontrados os seguintes erros: \n\n"
@@ -151,7 +150,7 @@ const clipboarText = () => {
     const msgClip = navigator.clipboard.writeText(texto.innerText);
     msgClip.then(() =>{
 
-        alert('Texto copiado com sucesso da àrea de transferência.');
+        alert('Texto copiado com sucesso à area de transferência.');
         
     }).catch(err => {
         alert(err);
