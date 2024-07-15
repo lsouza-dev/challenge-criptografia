@@ -17,7 +17,9 @@ O Challenge Criptografia é um projeto empolgante proposto pela Oracle Next Educ
 
 * ![Logo JavaScript](img/icons/js.png)  **JavaScript**: A linguagem de programação que dá vida à interatividade do sistema, permitindo a criptografia, descriptografia e manipulação do texto.
 
-* img<src="/img/modelo-challenge.png" alt="Imagem Referência Projeto" width="500px" height="250px">
+* Imagem de referência do projeto:
+![Imagem referência projeto](img/modelo-challenge.png)
 
 * Para saber mais sobre mim e minhas habilidades, acesse meu perfil no LinkedIn:
-![Logo LinkedIn](img/icons/linkedin.png) www.linkedin.com/in/luiz-fabiano-91542026b
+![Logo LinkedIn](img/icons/linkedin.png)
+www.linkedin.com/in/luiz-fabiano-91542026b
